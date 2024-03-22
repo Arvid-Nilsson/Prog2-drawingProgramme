@@ -28,13 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.pxbPapper = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pxbPapper)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // pxbPapper
+            // 
+            this.pxbPapper.Location = new System.Drawing.Point(206, 1);
+            this.pxbPapper.Name = "pxbPapper";
+            this.pxbPapper.Size = new System.Drawing.Size(561, 597);
+            this.pxbPapper.TabIndex = 0;
+            this.pxbPapper.TabStop = false;
+            this.pxbPapper.Paint += new System.Windows.Forms.PaintEventHandler(this.pxbPapper_Paint);
+            this.pxbPapper.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pxbPapper_MouseDown);
+            this.pxbPapper.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pxbPapper_MouseMove);
+            this.pxbPapper.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pxbPapper_MouseUp);
+            // 
+            // Form1
+            // 
+            this.ClientSize = new System.Drawing.Size(762, 591);
+            this.Controls.Add(this.pxbPapper);
+            this.Name = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.pxbPapper)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.PictureBox pxbPapper;
     }
 }
 
