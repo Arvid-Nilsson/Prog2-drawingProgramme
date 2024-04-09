@@ -14,6 +14,7 @@ namespace Prog2_drawingPrograme
     {
         private bool isDrawing = false;     // En flagga som indikerar om användaren är i färd med att rita eller inte.
         private Point previousPoint;        // Håller koll på den tidigare muspositionen för att rita linjer.
+        private Pen pen = new Pen(Color.Black, 4);
 
         // Deklarera en bitmap för att lagra ritområdet
         private Bitmap drawingSurface = new Bitmap(800, 600);
@@ -49,7 +50,7 @@ namespace Prog2_drawingPrograme
                 using (Graphics g = Graphics.FromImage(drawingSurface))
                 {
                     // Skapa en penna med svart färg och tjocklek 4
-                    Pen pen = new Pen(Color.Black, 4);
+                    
 
                     // Rita en linje från föregående musposition till nuvarande musposition med den svarta pennan
                     g.DrawLine(pen, previousPoint, e.Location);
@@ -76,3 +77,4 @@ namespace Prog2_drawingPrograme
 }
 
 
+    
