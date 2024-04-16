@@ -17,6 +17,7 @@ namespace Prog2_drawingPrograme
         public int toolused = 0;
         public pencile Pencile = new pencile();
         public rectangle Rectangle = new rectangle();
+        public line Line = new line();
 
         // Deklarera en bitmap för att lagra ritområdet
         private Bitmap drawingSurface = new Bitmap(800, 600);
@@ -48,6 +49,9 @@ namespace Prog2_drawingPrograme
                 case 1:
                     Rectangle.click(e.Location);
                     break;
+                case 2:
+                    Line.click(e.Location);
+                    break;
             }
 
         }
@@ -62,6 +66,8 @@ namespace Prog2_drawingPrograme
                     break;
                 case 1:
                     break;
+                case 2:
+                    break; 
             }
             pxbPapper.Invalidate();
         }
@@ -76,6 +82,9 @@ namespace Prog2_drawingPrograme
                     break;
                 case 1:
                     Rectangle.release(e.Location, Graphics.FromImage(drawingSurface));
+                    break;
+                case 2:
+                    Line.release(e.Location, Graphics.FromImage(drawingSurface));
                     break;
             }
         }
@@ -94,6 +103,19 @@ namespace Prog2_drawingPrograme
         private void btnRektangel_Click(object sender, EventArgs e)
         {
             toolused = 1;
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            using (Graphics g = Graphics.FromImage(drawingSurface))
+            {
+                g.Clear(Color.White);
+            }
+        }
+
+        private void btnLine_Click(object sender, EventArgs e)
+        {
+            toolused = 2;
         }
     }
 }
