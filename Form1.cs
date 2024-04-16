@@ -4,17 +4,19 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Prog2_drawingPrograme
 {
+    
     public partial class Form1 : Form
     {
-        private bool isDrawing = false;     // En flagga som indikerar om användaren är i färd med att rita eller inte.
-        private Point previousPoint;        // Håller koll på den tidigare muspositionen för att rita linjer.
-        private Pen pen = new Pen(Color.Black, 4);
+        public int toolused = 0;
+        public pencile Pencile = new pencile();
+        public rectangle Rectangle = new rectangle();
 
         // Deklarera en bitmap för att lagra ritområdet
         private Bitmap drawingSurface = new Bitmap(800, 600);
@@ -24,7 +26,7 @@ namespace Prog2_drawingPrograme
 
             // Kör metoden för att skapa ett ritområdet genom att rensa det till vit färg
             InitializeDrawingSurface();
-        }
+    }
 
         // Metod för att skapa ett ritområde genom att rensa det till vit färg.
         private void InitializeDrawingSurface()
@@ -38,40 +40,60 @@ namespace Prog2_drawingPrograme
         // Händelsehanterare som aktiveras när användaren klickar ned musknappen för att börja rita.
         private void pxbPapper_MouseDown(object sender, MouseEventArgs e)
         {
-            isDrawing = true;                   // Användaren har börjat rita                
-            previousPoint = e.Location;         // Sparar positionen där muspekaren befann sig när ritningen påbörjades i previousPoint 
+            switch (toolused)
+            {
+                case 0:
+                    Pencile.startDraw(e);
+                    break;
+                case 1:
+                    Rectangle.click(e.Location);
+                    break;
+            }
+
         }
 
         // Händelsehanterare som aktiveras när användaren rör musen och ritningen pågår.
         private void pxbPapper_MouseMove(object sender, MouseEventArgs e)
         {
-            if (isDrawing)
+            switch(toolused )
             {
-                using (Graphics g = Graphics.FromImage(drawingSurface))
-                {
-                    // Skapa en penna med svart färg och tjocklek 4
-                    
-
-                    // Rita en linje från föregående musposition till nuvarande musposition med den svarta pennan
-                    g.DrawLine(pen, previousPoint, e.Location);
-                }
-                previousPoint = e.Location;
-
-                // Uppdatera PictureBox för att visa de ändringar som gjorts på ritområdet
-                pxbPapper.Invalidate();
+                case 0:
+                    Pencile.draw(e, Graphics.FromImage(drawingSurface));
+                    break;
+                case 1:
+                    break;
             }
+            pxbPapper.Invalidate();
         }
 
         // Händelsehanterare som aktiveras när användaren släpper musknappen.
         private void pxbPapper_MouseUp(object sender, MouseEventArgs e)
         {
-            isDrawing = false;          // Användaren har slutat rita och släppt musknappen
+            switch (toolused)
+            {
+                case 0:
+                    Pencile.endDraw();
+                    break;
+                case 1:
+                    Rectangle.release(e.Location, Graphics.FromImage(drawingSurface));
+                    break;
+            }
         }
 
         private void pxbPapper_Paint(object sender, PaintEventArgs e)
         {
             // Rita ritområdet på PictureBox
             e.Graphics.DrawImage(drawingSurface, Point.Empty);
+        }
+
+        private void btnPenna_Click(object sender, EventArgs e)
+        {
+            toolused = 0;
+        }
+
+        private void btnRektangel_Click(object sender, EventArgs e)
+        {
+            toolused = 1;
         }
     }
 }

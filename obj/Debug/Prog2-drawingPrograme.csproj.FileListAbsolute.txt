@@ -8,3 +8,13 @@ C:\Users\Arvid.nilsson5\Desktop\Prog2\Prog2-drawingPrograme\bin\Debug\Prog2-draw
 C:\Users\Arvid.nilsson5\Desktop\Prog2\Prog2-drawingPrograme\bin\Debug\Prog2-drawingPrograme.pdb
 C:\Users\Arvid.nilsson5\Desktop\Prog2\Prog2-drawingPrograme\obj\Debug\Prog2-drawingPrograme.exe
 C:\Users\Arvid.nilsson5\Desktop\Prog2\Prog2-drawingPrograme\obj\Debug\Prog2-drawingPrograme.pdb
+C:\Users\arvni\Documents\prog2\Prog2-drawingProgramme\bin\Debug\Prog2-drawingPrograme.exe.config
+C:\Users\arvni\Documents\prog2\Prog2-drawingProgramme\bin\Debug\Prog2-drawingPrograme.exe
+C:\Users\arvni\Documents\prog2\Prog2-drawingProgramme\bin\Debug\Prog2-drawingPrograme.pdb
+C:\Users\arvni\Documents\prog2\Prog2-drawingProgramme\obj\Debug\Prog2-drawingPrograme.csproj.AssemblyReference.cache
+C:\Users\arvni\Documents\prog2\Prog2-drawingProgramme\obj\Debug\Prog2_drawingPrograme.Form1.resources
+C:\Users\arvni\Documents\prog2\Prog2-drawingProgramme\obj\Debug\Prog2_drawingPrograme.Properties.Resources.resources
+C:\Users\arvni\Documents\prog2\Prog2-drawingProgramme\obj\Debug\Prog2-drawingPrograme.csproj.GenerateResource.cache
+C:\Users\arvni\Documents\prog2\Prog2-drawingProgramme\obj\Debug\Prog2-drawingPrograme.csproj.CoreCompileInputs.cache
+C:\Users\arvni\Documents\prog2\Prog2-drawingProgramme\obj\Debug\Prog2-drawingPrograme.exe
+C:\Users\arvni\Documents\prog2\Prog2-drawingProgramme\obj\Debug\Prog2-drawingPrograme.pdb
