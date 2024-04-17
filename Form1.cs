@@ -117,6 +117,53 @@ namespace Prog2_drawingPrograme
         {
             toolused = 2;
         }
+
+        private void tbxSize_TextChanged(object sender, EventArgs e)
+        {
+            try
+            { 
+                int tempSize = int.Parse(tbxSize.Text);
+                if (tempSize > 0)
+                {
+                    Pencile.size = tempSize;
+                    Rectangle.size = tempSize;
+                    Line.size = tempSize;
+                }
+                else
+                {
+                    tbxSize.Text = "1";
+                }
+            }
+            catch {
+               
+            }
+            
+        }
+
+        private void btnSizeUp_Click(object sender, EventArgs e)
+        {
+            tbxSize.Text = (int.Parse(tbxSize.Text) + 1).ToString();
+        }
+
+        private void btnSizeDown_Click(object sender, EventArgs e)
+        {
+            tbxSize.Text = (int.Parse(tbxSize.Text) - 1).ToString();
+        }
+
+        private void btnColor_Click(object sender, EventArgs e)
+        {
+            if(colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                Pencile.color = colorDialog1.Color;
+                Rectangle.color = colorDialog1.Color;
+                Line.color = colorDialog1.Color;
+            }
+        }
+
+        private void cbxFill_CheckedChanged(object sender, EventArgs e)
+        {
+            Rectangle.fill = cbxFill.Checked;
+        }
     }
 }
 

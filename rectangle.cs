@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Net.Http.Headers;
@@ -12,7 +13,9 @@ namespace Prog2_drawingPrograme
     public class rectangle : tool
     {
         private Point firstPoint;
-        bool isRectangleing = false;
+        private bool isRectangleing = false;
+        public bool fill = false;
+        
 
         public void click(Point point)
         {
@@ -28,8 +31,16 @@ namespace Prog2_drawingPrograme
                 int x = Math.Min(secondPoint.X, firstPoint.X);
                 int y = Math.Min(secondPoint.Y, firstPoint.Y);
 
-                Rectangle rect = new Rectangle(x, y, width, height);
-                g.DrawRectangle(Pens.Black, rect);
+                if(fill == false) 
+                {
+                    g.DrawRectangle(pen, x, y, width, height);
+                }
+                else
+                {
+                    g.FillRectangle(brush, x, y, width, height);
+                }
+                
+                
 
                 // Reset the state
                 isRectangleing = false;

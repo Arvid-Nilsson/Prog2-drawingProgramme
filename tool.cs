@@ -10,6 +10,29 @@ namespace Prog2_drawingPrograme
     public class tool
     {
         protected Pen pen = new Pen(Color.Black, 4);
-        public Color color { get { return pen.Color; } set { pen.Color = value; } }
+        protected SolidBrush brush = new SolidBrush(Color.Black);
+
+        protected int _size;
+        public Color color { 
+            get { return pen.Color; } 
+            set { 
+                pen.Color = value;
+                brush.Color = value;
+            }
+        }
+
+        public int size
+        {
+            get
+            {
+                return _size;
+            }
+            set
+            {
+                _size = value;
+                pen.Width = value;
+            }
+        }
+        
     }
 }
