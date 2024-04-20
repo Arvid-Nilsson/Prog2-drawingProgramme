@@ -10,22 +10,24 @@ using System.Windows.Forms;
 
 namespace Prog2_drawingPrograme
 {
-    public class rectangle : tool
+    public class ellipse : tool
     {
         private Point firstPoint;
-        private bool isRectangleing = false;
         public bool fill = false;
 
+        //Variable to track the tools state, if the first point is stored
+        private bool isEllipsing = false;
+
+
+        //Method to store the mouse position when mouse is clicked down
         public void click(Point point)
         {
-            //Store the mouses position  
             firstPoint = point;
-            isRectangleing = true;
+            isEllipsing = true;
         }
         public void release(Point secondPoint, Graphics g)
         {
-            //Create rectangle
-            if (isRectangleing)
+            if (isEllipsing)
             {
                 //Assigning the width and height to the distance between the 2 points in X and Y directions
                 int width = Math.Abs(secondPoint.X - firstPoint.X);
@@ -35,18 +37,18 @@ namespace Prog2_drawingPrograme
                 int x = Math.Min(secondPoint.X, firstPoint.X);
                 int y = Math.Min(secondPoint.Y, firstPoint.Y);
 
-                //Creating a rectangle that is either filled or not filled depending on the fill variable
-                if(fill == false) 
+                //Creating a ellipse that is either filled or not filled depending on the fill variable
+                if (fill == false)
                 {
-                    g.DrawRectangle(pen, x, y, width, height);
+                    g.DrawEllipse(pen, x, y, width, height);
                 }
                 else
                 {
-                    g.FillRectangle(brush, x, y, width, height);
+                    g.FillEllipse(brush, x, y, width, height);
                 }
-               
-                //Reseting the tool
-                isRectangleing = false;
+
+                //Reseting the tool 
+                isEllipsing = false;
             }
         }
     }

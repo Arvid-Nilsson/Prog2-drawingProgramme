@@ -13,26 +13,33 @@ namespace Prog2_drawingPrograme
         private bool isDrawing = false;
         private Point previousPoint;
 
+        //Method to start drawing
         public void startDraw(MouseEventArgs e)
         {
             isDrawing = true;                                
             previousPoint = e.Location;
         }
+
+        //Method to stop drawing
         public void endDraw() { 
             isDrawing = false;
         }
+
+        //Method to draw
         public void draw (MouseEventArgs e, Graphics g) {
 
             if (isDrawing)
             {
                 using (g)
                 {
-                    // Rita en linje från föregående musposition till nuvarande musposition med den svarta pennan
+                    //Changing the quality to high
+                    g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+
+                    // Drawing a line from the last mouse position to the new
                     g.DrawLine(pen, previousPoint, e.Location);
                 }
+                //Saving the current mouse position
                 previousPoint = e.Location;
-
-                // Uppdatera PictureBox för att visa de ändringar som gjorts på ritområdet
 
             }
 

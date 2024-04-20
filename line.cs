@@ -12,6 +12,7 @@ namespace Prog2_drawingPrograme
         private Point firstPoint;
         bool isMakingLine = false;
 
+        //Storing the first point
         public void click(Point point)
         {
             firstPoint = point;
@@ -21,13 +22,16 @@ namespace Prog2_drawingPrograme
         {
             if (isMakingLine)
             {
+                //Defining the x and y positions of both endpoints of the line
                 float x1 = firstPoint.X;
                 float x2 = secondPoint.X;
                 float y1 = firstPoint.Y;
                 float y2 = secondPoint.Y;
 
+                //Drawing the line
                 g.DrawLine(pen, x1, y1, x2, y2);
 
+                //Reseting the tools state
                 isMakingLine = false;
             }
         }
