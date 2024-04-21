@@ -46,8 +46,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btnChangeBackgroundImage = new System.Windows.Forms.Button();
             this.gbxBackground = new System.Windows.Forms.GroupBox();
-            this.btnChangeBackgroundColor = new System.Windows.Forms.Button();
-            this.cDBackground = new System.Windows.Forms.ColorDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pbxPapper)).BeginInit();
             this.gbxTools.SuspendLayout();
             this.gbxBackground.SuspendLayout();
@@ -228,24 +226,13 @@
             // 
             // gbxBackground
             // 
-            this.gbxBackground.Controls.Add(this.btnChangeBackgroundColor);
             this.gbxBackground.Controls.Add(this.btnChangeBackgroundImage);
             this.gbxBackground.Location = new System.Drawing.Point(29, 473);
             this.gbxBackground.Name = "gbxBackground";
-            this.gbxBackground.Size = new System.Drawing.Size(147, 106);
+            this.gbxBackground.Size = new System.Drawing.Size(147, 78);
             this.gbxBackground.TabIndex = 10;
             this.gbxBackground.TabStop = false;
             this.gbxBackground.Text = "Bakgrund";
-            // 
-            // btnChangeBackgroundColor
-            // 
-            this.btnChangeBackgroundColor.Location = new System.Drawing.Point(35, 67);
-            this.btnChangeBackgroundColor.Name = "btnChangeBackgroundColor";
-            this.btnChangeBackgroundColor.Size = new System.Drawing.Size(91, 23);
-            this.btnChangeBackgroundColor.TabIndex = 10;
-            this.btnChangeBackgroundColor.Text = "Välj färg";
-            this.btnChangeBackgroundColor.UseVisualStyleBackColor = true;
-            this.btnChangeBackgroundColor.Click += new System.EventHandler(this.btnChangeBackgroundColor_Click);
             // 
             // Form1
             // 
@@ -284,8 +271,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnChangeBackgroundImage;
         private System.Windows.Forms.GroupBox gbxBackground;
-        private System.Windows.Forms.Button btnChangeBackgroundColor;
-        private System.Windows.Forms.ColorDialog cDBackground;
     }
 }
 

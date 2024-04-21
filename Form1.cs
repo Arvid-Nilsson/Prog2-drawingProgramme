@@ -250,11 +250,6 @@ namespace Prog2_drawingPrograme
                 pbxPapper.Image = drawingSurface;
             }
         }
-
-        private void btnChangeBackgroundColor_Click(object sender, EventArgs e)
-        {
-            
-        }
     }
 }
 

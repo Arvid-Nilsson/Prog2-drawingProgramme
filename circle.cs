@@ -12,7 +12,7 @@ namespace Prog2_drawingPrograme
 {
     public class circle : tool
     {
-        private Point firstPoint;
+        private Point centerPoint;
         private bool isCircling = false;
         public bool fill = false;
 
@@ -20,23 +20,23 @@ namespace Prog2_drawingPrograme
         //Stor the position of the center of the circle
         public void click(Point point)
         {
-            firstPoint = point;
+            centerPoint = point;
             isCircling = true;
         }
-        public void release(Point secondPoint, Graphics g)
+        public void release(Point edgePoint, Graphics g)
         {
             if (isCircling)
             {
                 //Defining variables for the distance between the point
-                int distanceY = Math.Abs(secondPoint.Y - firstPoint.Y);
-                int distanceX = Math.Abs(secondPoint.X - firstPoint.X);
+                int distanceY = Math.Abs(edgePoint.Y - centerPoint.Y);
+                int distanceX = Math.Abs(edgePoint.X - centerPoint.X);
 
                 //Calculating the diameter of the circle by using the pytagrean thearum 
                 int diameter = 2 * Convert.ToInt32(Math.Sqrt(Math.Pow(distanceY, 2) + Math.Pow(distanceX, 2)));
 
                 //Calculating the position of the circle
-                int x = firstPoint.X - (diameter/2);
-                int y = firstPoint.Y - (diameter/2);
+                int x = centerPoint.X - (diameter/2);
+                int y = centerPoint.Y - (diameter/2);
 
                 //Creating a circle that is either filled or not filled depending on the fill variable
                 if (fill == false)
